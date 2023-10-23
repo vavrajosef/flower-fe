@@ -31,10 +31,21 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  mounted() {
+    axios.get('http://172.17.86.246:30555/api/flowers')
+      .then(resp => console.log(resp))
+  },
+  data() {
+    return {
+      flowers: []
+    }
   }
 }
 </script>
